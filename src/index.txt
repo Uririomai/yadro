@@ -1,0 +1,30 @@
+// Основной компонент приложения
+const App = () => {
+  return (
+    <Provider store={store}>
+        <main>
+          <section>
+            <ButtonBlock/>
+          </section>
+          
+          <section>
+            <div>
+              <Chart/>
+            </div>
+            
+            <div>
+              <Table/>
+            </div>
+          </section>
+        </main>
+    </Provider>
+  );
+};
+
+// Рендеринг приложения
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);

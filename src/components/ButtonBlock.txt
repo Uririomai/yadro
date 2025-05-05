@@ -1,0 +1,19 @@
+ButtonBlock = () => {
+  dispatch = useDispatch()
+
+  handleFetch = () => {
+    dispatch(fetchData())
+    fetch("/api/data").then(response => dispatch(fetchDataSuccess(response.data)))
+  }
+
+  handleClear = () => dispatch(clearData())
+  handleSave = () => dispatch(saveToCSV())
+
+  return (
+    <div>
+      <button onClick={handleFetch}>Получить данные</button>
+      <button onClick={handleClear}>Очистить данные</button>
+      <button onClick={handleSave}>Сохранить в CSV</button>
+    </div>
+  )
+}

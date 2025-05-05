@@ -1,0 +1,28 @@
+// actions.js
+actions = {
+  fetchData: () => { тип: "FETCH_DATA" },
+  clearData: () => { тип: "CLEAR_DATA" },
+  saveToCSV: () => { тип: "SAVE_TO_CSV" },
+  selectRow: (rowId) => { тип: "SELECT_ROW", payload: rowId }
+}
+
+// reducer.js
+initialState = {
+  data: [],
+  selectedRow: null,
+  isLoading: false
+}
+
+reducer = (state = initialState, action) => {
+  switch (action.type):
+    case "FETCH_DATA":
+      return { ...state, isLoading: true }
+    case "FETCH_DATA_SUCCESS":
+      return { ...state, data: action.payload, isLoading: false }
+    case "CLEAR_DATA":
+      return { ...state, data: [], selectedRow: null }
+    case "SELECT_ROW":
+      return { ...state, selectedRow: action.payload }
+    default:
+      return state
+}

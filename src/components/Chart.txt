@@ -1,0 +1,6 @@
+Chart = () => {
+  selectedRow = useSelector(state => state.selectedRow)
+  data = useSelector(state => state.data.find(row => row.id === selectedRow))
+
+  return <BarChart data={data} />
+}

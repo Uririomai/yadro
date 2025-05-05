@@ -1,0 +1,21 @@
+DataTable = () => {
+  data = useSelector(state => state.data)
+  selectedRow = useSelector(state => state.selectedRow)
+  dispatch = useDispatch()
+
+  handleRowClick = (rowId) => dispatch(selectRow(rowId))
+
+  return (
+    <table>
+      {data.map(row => (
+        <tr 
+          key={row.id} 
+          onClick={() => handleRowClick(row.id)}
+          highlighted={row.id === selectedRow}
+        >
+          <td>{row.value}</td>
+        </tr>
+      ))}
+    </table>
+  )
+}
